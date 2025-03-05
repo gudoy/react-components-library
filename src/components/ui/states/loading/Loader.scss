@@ -1,0 +1,22 @@
+span.is-loading {
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    animation: spin 1s infinite linear;
+  }
+
+  .label {
+    // @include accessible-hidden;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}

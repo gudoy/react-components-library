@@ -1,26 +1,26 @@
-import { useCallback } from 'react'
+import { useCallback } from 'react';
 
-import RatingStar from '@/components/ui/RatingStars/RatingStar/RatingStar'
+import RatingStar from '@/components/ui/buttons/ratingStars/ratingStar/RatingStar';
 
-import './RatingStars.scss'
+import './RatingStars.scss';
 
-export type RatingValue = 0 | 1 | 2 | 3 | 4 | 5
+export type RatingValue = 0 | 1 | 2 | 3 | 4 | 5;
 
 type RatingStarsProps = {
-  rating: RatingValue
-  onChange: (value: RatingValue) => void
-}
+  rating: RatingValue;
+  onChange: (value: RatingValue) => void;
+};
 
 const RatingStars = (props: RatingStarsProps) => {
-  const { rating, onChange = () => undefined } = props
+  const { rating, onChange = () => undefined } = props;
 
   const handleClick = useCallback(
     (value: number) => {
-      const newValue = value === rating ? 0 : (value as RatingValue)
-      onChange(newValue)
+      const newValue = value === rating ? 0 : (value as RatingValue);
+      onChange(newValue);
     },
     [onChange, rating]
-  )
+  );
 
   return (
     <ul className="rating-stars">
@@ -40,7 +40,7 @@ const RatingStars = (props: RatingStarsProps) => {
         <RatingStar />
       </li>
     </ul>
-  )
-}
+  );
+};
 
-export default RatingStars
+export default RatingStars;

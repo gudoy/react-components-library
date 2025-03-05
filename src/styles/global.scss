@@ -1,0 +1,14 @@
+@use 'mixins' as *;
+
+@use 'reset';
+@use 'fonts';
+@use 'colors';
+@use 'spacing';
+
+:root {
+    --main-border-radius: 6px;
+}
+
+.sr-only:not(:focus):not(:active) {
+    @include accessible-hidden;
+}

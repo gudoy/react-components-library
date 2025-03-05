@@ -1,0 +1,11 @@
+:root {
+  --primary-color: rgb(50, 50, 50);
+  --secondary-color: rgb(100, 100, 100);
+
+  --main-border-color: rgb(210, 210, 210);
+  --main-background-color: rgb(250, 250, 250);
+  --main-text-color: var(--secondary-color);
+
+  --main-hover-background-color: color-mix(in srgb, var(--main-background-color), white 20%);
+  --main-focus-border-color: color-mix(in srgb, var(--main-border-color), black 10%);
+}

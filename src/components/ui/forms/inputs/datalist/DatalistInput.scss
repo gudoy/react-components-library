@@ -1,0 +1,29 @@
+input:focus + datalist {
+  display: block;
+}
+
+datalist {
+  background-color: white;
+  border: var(--input-border-width) solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  border-top-width: 0;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  z-index: 3;
+  display: block;
+
+  &[hidden] {
+    display: none;
+  }
+
+  option {
+    padding: 4px var(--input-horizontal-padding);
+    margin-bottom: 1px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--surface-light-color);
+    }
+  }
+}

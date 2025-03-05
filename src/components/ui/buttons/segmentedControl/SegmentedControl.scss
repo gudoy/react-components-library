@@ -1,0 +1,108 @@
+.radio-input-list[role="radiogroup"] {
+  --segmented-control-background-color: var(--surface-light-color);
+  --segmented-control-border-color: var(--outline-color);
+  --segmented-control-text-color: color-mix(in srgb, var(--outline-focus-color) 50%, transparent);
+  --segmented-control-border-radius: 8px;
+  --segmented-control-font-size: 14px;
+  --segmented-control-line-height: 24px;
+  --segmented-control-font-weight: 600;
+  --segmented-control-font-family: 'PPMori';
+  --segmented-control-vertical-padding: 4px;
+  --segmented-control-horizontal-padding: 16px;
+  --segmented-control-item-border-color: transparent;
+  --segmented-control-item-border-width: 1px;
+  --segmented-control-selected-item-background-color: var(--primary-color);
+  --segmented-control-selected-item-border-color: var(--segmented-control-border-color);
+  // --segmented-control-selected-item-border-color: var(--surface-light-color);
+  --segmented-control-selected-item-text-color: var(--surface-light-color);
+  --segmented-control-selected-box-shadow: 0 2px 8px 0 #rgba(109, 135, 159, 0.12);
+
+  //--segmented-control-item-hover-background-color: color-mix(in srgb, var(--primary-color), white 20%);
+  //--segmented-control-item-hover-border-color: color-mix(in srgb, var(--segmented-control-selected-item-border-color) 50%, transparent);
+  //--segmented-control-item-hover-text-color: var(--surface-light-color);
+  --segmented-control-item-with: auto;
+  --segmented-control-selected-item-x-pos: 0;
+
+
+  list-style: none;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 0;
+
+  background-color: var(--segmented-control-background-color);
+  border-style: solid;
+  border-color: var(--segmented-control-border-color);
+  border-width: 1px;
+  border-radius: var(--segmented-control-border-radius);
+
+  &::before {
+    content: "";
+    background-color: transparent;
+    border-radius: var(--segmented-control-border-radius);
+    width: calc(var(--segmented-control-item-with) + 2px);
+    transform: translateX(calc(var(--segmented-control-selected-item-x-pos) - 1px));
+    transition: transform 0.3s ease, width 0.3s ease;
+    box-shadow: var(--segmented-control-selected-box-shadow);
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    z-index: 0;
+  }
+
+  &:has(.is-checked) {
+    &::before {
+      background-color: var(--segmented-control-selected-item-background-color);
+      border-color: var(--segmented-control-selected-item-border-color);
+    }
+  }
+
+  .radio-input-item {
+    display: inline-block;
+    position: relative;
+    flex: 1;
+    z-index: 1;
+
+    input {
+      appearance: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      cursor: pointer;
+      display: block;
+
+      + label {
+        display: block;
+        padding: var(--segmented-control-vertical-padding) var(--segmented-control-horizontal-padding);
+        border-radius: var(--segmented-control-border-radius);
+        color: var(--segmented-control-text-color);
+        font-size: var(--segmented-control-font-size);
+        line-height: var(--segmented-control-line-height);
+        font-weight: var(--segmented-control-font-weight);
+        font-family: var(--segmented-control-font-family);
+        z-index: 1;
+        text-align: center;
+        white-space: nowrap;
+        transition: color 0.5s ease;
+      }
+    }
+
+    &.is-checked {
+      input {
+        + label {
+          color: var(--segmented-control-selected-item-text-color);
+        }
+      }
+    }
+  }
+}

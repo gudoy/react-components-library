@@ -1,9 +1,10 @@
 import { type ReactNode, type MouseEvent, type ComponentProps } from 'react';
 
-import Loader from '@/components/ui/states/loading/Loader.tsx';
+import Loader from '@/components/ui/states/loading/Loader';
+
+import Label from '@/components/ui/label/Label';
 
 import './Button.scss';
-import Label from '../../label/Label';
 
 export type TooltipPosition =
   | 'top left'
@@ -30,7 +31,7 @@ export type ButtonProps = {
 
 export type CustomButtonType = ButtonProps & (ComponentProps<'button'> | ComponentProps<'a'>);
 
-const Button = (props: CustomButtonType) => {
+function Button(props: CustomButtonType) {
   const {
     href,
     label,
@@ -72,12 +73,12 @@ const Button = (props: CustomButtonType) => {
       onClick={handleClick}
       {...otherProps}
     >
-      {icon && <span className="icon">{icon}</span>}
+      {icon && icon}
       {label && <Label value={label} />}
       {children}
       {isLoading && <Loader />}
     </Tag>
   );
-};
+}
 
 export default Button;

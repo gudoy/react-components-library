@@ -1,0 +1,11 @@
+.link {
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline-color: var(--main-focus-border-color);
+  }
+}

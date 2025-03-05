@@ -1,0 +1,80 @@
+:root {
+  --input-min-height: 48px;
+  --input-color: var(--outline-focus-color);
+  --input-placeholder-color: color-mix(in srgb, var(--input-color) 50%, transparent);
+  --input-border-color: var(--outline-color);
+  --input-border-focus-color: #1f1f1f;
+  --input-border-radius: 6px;
+  --input-border-width: 1px;
+  --input-box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.2);
+  --input-horizontal-padding: 16px;
+  --input-font-size: 14px;
+  --input-line-height: 24px;
+  --input-font-weight: 400;
+  --input-font-family: 'PPMori';
+  --input-error-color: var(--danger-color);
+  --input-valid-color: var(--success-color);
+  --input-disabled-border-color: var(--text-disabled-dark-color);
+  --input-disabled-color: var(--text-disabled-dark-color)
+}
+
+.input-wrapper {
+  &[data-placeholder] {
+    &::after {
+      content: attr(data-placeholder);
+      position: absolute;
+      top: 50%;
+      left: var(--input-horizontal-padding);
+      transform: translateY(-50%);
+      color: var(--input-placeholder-color);
+      pointer-events: none;
+      font-family: var(--input-font-family);
+    }
+  }
+}
+
+// ant-picker-input
+
+input {
+  // TODO: remove the following once Ant Design will have been totally removed
+  &:not(:where(.ant-form input, .ant-input-affix-wrapper input, .ant-picker-input input)) {
+    &:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+      min-height: var(--input-min-height);
+      padding: 0 var(--input-horizontal-padding);
+      border-radius: var(--input-border-radius);
+      border: var(--input-border-width) solid var(--input-border-color);
+      color: var(--input-color);
+      font-size: var(--input-font-size);
+      line-height: var(--input-line-height);
+      font-weight: var(--input-font-weight);
+      outline: none;
+      box-shadow: none;
+      font-family: var(--input-font-family);
+
+      &[disabled],
+      &:disabled {
+        background-color: white;
+        border-color: var(--input-disabled-color);
+        color: var(--input-disabled-color);
+        cursor: not-allowed;
+      }
+
+      &[readonly] {
+        // TODO: ask Yann for design
+      }
+
+      &:focus {
+        border-color: var(--input-border-focus-color);
+        box-shadow: var(--input-box-shadow);
+      }
+
+      &::placeholder {
+        color: var(--input-placeholder-color);
+        font-family: var(--input-font-family);
+      }
+    }
+  }
+
+}
+
+

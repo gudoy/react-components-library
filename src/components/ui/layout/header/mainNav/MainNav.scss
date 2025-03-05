@@ -1,0 +1,12 @@
+:root {
+  --main-nav-font-family: var(--main-font, sans-serif);
+}
+
+.main-nav {
+  display: inline-flex;
+  flex-direction: column;
+  align-self: stretch;
+  margin-inline: var(--spacing-3);
+  text-align: left;
+  font-family: var(--main-nav-font-family), sans-serif;
+}

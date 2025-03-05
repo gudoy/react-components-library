@@ -1,0 +1,36 @@
+.toggle-header-size-action {
+    --button-size: 24px;
+    --button-icon-size: 20px;
+
+    display: none;
+    position: absolute;
+    bottom: var(--button-size);
+    left: 100%;
+    translate: -50% 0;
+
+    padding: 4px;
+    border-radius: 50%;
+    background-color: white;
+
+    .icon {
+        width: var(--button-size);
+        aspect-ratio: 1;
+
+        svg {
+            width: var(--button-icon-size)
+        }
+    }
+
+    &:hover {
+        background-color: white;
+    }
+
+    .label {
+        @include accessible-hidden;
+    }
+
+    // Desktop
+    @media screen and (min-width:64rem) {
+        display: initial;
+    }
+}

@@ -1,18 +1,27 @@
 :root {
-  --header-width: 200px;
-  --header-minimized-width: 60px;
-  --header-background-color: black;
+  --header-width: calc(20 * var(--main-font-size)); // 20*14 = 280px
+  --header-minimized-width: calc(5 * var(--main-font-size)); // 5*14px = 70px
+  --header-background-color: var(--main-background-color);
+  --header-border-color: var(--main-border-color);
+  --header-text-color: var(--main-text-color);
 }
 
 #header {
-  width: 100%;
-  max-width: var(--header-width);
-  display: flex;
-  flex-direction: column;
   container-type: size;
 
+  width: 100%;
+  max-width: var(--header-width);
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
   background-color: var(--header-background-color);
-  transition: 0.3s ease-in-out;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: var(--header-border-color);
+  color: var(--header-text-color);
+  transition: .280s cubic-bezier(0.1, 0, 0, 1);
   transition-property: translate, max-width;
   translate: -100% 0;
 
@@ -22,6 +31,16 @@
   left: 0;
   bottom: 0;
   z-index: 3;
+
+  #branding {
+    // The following keeps the main nav at the same top position even in minimized header mode
+    height: calc(var(--app-logo-height) + 2px); // logo-height + border
+    margin-block: var(--spacing-4);
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   // Once target or open via the toggle menu button, it appears, sliding in
   // and the page itself also slide on the right
@@ -34,15 +53,12 @@
     }
   }
 
-
-
   // Desktop (>= 1024px)
   @container (width >= 64rem) {
 
     // Make the menu always visible on the left
-    position: static;
+    position: relative;
     translate: none;
-    // max-width: var(--header-minimized-width)
 
     &.is-minimized {
       max-width: var(--header-minimized-width)
@@ -55,30 +71,3 @@
     }
   }
 }
-
-
-
-/* @media screen and (min-width: 1280px) {
-  #header {
-    @include cancel-minimized-header;
-
-    ul {
-      li {
-        a {
-          &:hover {
-            &::before,
-            &::after {
-              display: none;
-            }
-          }
-        }
-      }
-    }
-
-    &.is-open {
-      + main {
-        translate: 0;
-      }
-    }
-  }
-} */

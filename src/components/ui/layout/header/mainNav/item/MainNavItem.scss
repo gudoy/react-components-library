@@ -1,0 +1,144 @@
+:root {
+  --main-nav-item-min-size: 44px;
+
+  --main-nav-item-border-radius: var(--main-border-radius);
+  --main-nav-item-font-size: var(--main-font-size);
+  --main-nav-item-line-height: normal;
+
+  // default
+  --main-nav-item-text-color: var(--main-text-color);
+  --main-nav-item-background-color: transparent;
+  --main-nav-item-border-color: transparent;
+
+  // Active/selected
+  --main-nav-item-selected-text-color: color-mix(in srgb, var(--main-text-color), black 50%);
+  --main-nav-item-selected-border-color: var(--main-border-color);
+  --main-nav-item-selected-background-color: color-mix(in srgb, var(--main-background-color), white 100%);
+    
+  // Hover
+  --main-nav-item-hover-text-color: color-mix(in srgb, var(--main-text-color), black 50%);
+  --main-nav-item-hover-border-color: var(--main-border-color);
+  --main-nav-item-hover-background-color: color-mix(in srgb, var(--main-background-color), white 30%);
+
+  // Focus
+  --main-nav-item-focus-border-color: var(--main-focus-border-color);
+}
+
+.main-nav-item {
+  display: block;
+
+  margin-block-end: var(--spacing-3);
+
+  background-color: var(--main-nav-item-background-color);
+  border-radius: var(--main-nav-item-border-radius);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--main-nav-item-border-color);
+
+  > a {
+    // container-type: inline-size;
+    min-width: var(--main-nav-item-min-size);
+    min-height: var(--main-nav-item-min-size);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-inline: var(--spacing-3);
+    color: var(--main-nav-item-text-color);
+
+    border-radius: var(--main-nav-item-border-radius);
+    text-decoration: none;
+
+    .icon {
+      + .label {
+        padding-inline-start: var(--spacing-3);
+      }
+    }
+
+    .label {
+      max-width: 100%;
+      transition: color, max-width 0.3s ease-in-out;
+      font-size: var(--main-nav-item-font-size);
+      display: block;
+      overflow: hidden;
+    }
+  }
+
+  &:active,
+  &.is-current {
+    background-color: var(--main-nav-item-selected-background-color);
+    border-color: var(--main-nav-item-selected-border-color);
+
+    > a {
+      color: var(--main-nav-item-selected-text-color);
+    }
+  }
+
+  &:hover {
+    background-color: var(--main-nav-item-hover-background-color);
+    border-color: var(--main-nav-item-hover-border-color);
+
+    > a {
+      color: var(--main-nav-item-hover-text-color);
+    }
+  }
+
+  &:has(> a:focus) {
+    > a {
+      outline-color: var(--main-nav-item-focus-border-color);
+      color: var(--main-nav-item-focus-text-color);
+    }
+  }
+
+  // < 80px (minimized header)
+  @container (width <= 5rem) {
+    width: 46px;
+
+      // Hide labels and just keep the icons
+      > a {
+        .label {
+          max-width: 0;
+          max-height: 0;
+        }
+
+        // Transform the label into a tooltip at the right of the nav item
+        &:hover {
+          .label {
+            --tooltip-background-color: var(--main-background-color);
+            --tooltip-border-color: var(--main-border-color);
+
+            max-width: initial;
+            max-height: initial;
+            overflow: visible;
+
+            min-width: 180px;
+            padding: var(--spacing-3) var(--spacing-3);
+            margin-inline-start: var(--spacing-3);
+
+            position: absolute;
+            left: 100%;
+
+            background: var(--tooltip-background-color);
+            border-width: 1px;
+            border-style: solid;
+            border-color: var(--tooltip-border-color);
+            border-radius: var(--main-nav-item-border-radius);
+
+            &:before {
+              width: 18px;
+              height: 18px;
+              border: 1px solid var(--tooltip-border-color);
+              border-top-color: transparent;
+              border-right-color: transparent;
+              background-color: var(--tooltip-background-color);
+              content: ' ';
+              display: block;
+              position: absolute;
+              right: 100%;
+              rotate: 45deg;
+              translate: 8px 0;
+            }
+          }
+        }
+    } 
+  }
+}

@@ -1,0 +1,50 @@
+.dialog {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  &:not(.is-open) {
+    display: none;
+  }
+
+  // The following should only be applied if the dialog is modal
+  background-color: rgb(0 0 0 / 0.1);
+
+  .dialog-wrapper {
+    height: auto;
+    width: auto;
+    min-width: 20rem;
+    max-width: 42rem;
+    overflow-y: auto;
+
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 10;
+
+    margin: 0 auto;
+    padding: var(--spacing-3) var(--spacing-2);
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--main-border-color);
+    background-color: var(--main-background-color);
+    box-shadow: 0 24px 24px -8px rgb(0 0 0 / 0.1);
+    border-radius: var(--main-border-radius);
+
+    > .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-3);
+    }
+
+    > .content {
+      padding: var(--spacing-3);
+    }
+  }
+}
