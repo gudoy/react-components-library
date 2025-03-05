@@ -1,0 +1,84 @@
+:root {
+  --header-width: 200px;
+  --header-minimized-width: 60px;
+  --header-background-color: black;
+}
+
+#header {
+  width: 100%;
+  max-width: var(--header-width);
+  display: flex;
+  flex-direction: column;
+  container-type: size;
+
+  background-color: var(--header-background-color);
+  transition: 0.3s ease-in-out;
+  transition-property: translate, max-width;
+  translate: -100% 0;
+
+  // By default, on mobile, the header is hidden on the left side of the side
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+
+  // Once target or open via the toggle menu button, it appears, sliding in
+  // and the page itself also slide on the right
+  &:target,
+  &.is-open {
+    translate: 0;
+
+    + .page {
+      translate: var(--header-width) 0;
+    }
+  }
+
+
+
+  // Desktop (>= 1024px)
+  @container (width >= 64rem) {
+
+    // Make the menu always visible on the left
+    position: static;
+    translate: none;
+    // max-width: var(--header-minimized-width)
+
+    &.is-minimized {
+      max-width: var(--header-minimized-width)
+    }
+
+    &.is-open {
+      + .page {
+        translate: 0;
+      } 
+    }
+  }
+}
+
+
+
+/* @media screen and (min-width: 1280px) {
+  #header {
+    @include cancel-minimized-header;
+
+    ul {
+      li {
+        a {
+          &:hover {
+            &::before,
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &.is-open {
+      + main {
+        translate: 0;
+      }
+    }
+  }
+} */

@@ -1,0 +1,47 @@
+.rating-stars {
+  --rating-star-default-color: rgb(240, 240, 240);
+  --rating-star-active-color: rgb(250, 219, 20);
+
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2);
+
+  li {
+    cursor: pointer;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      transition: fill 0.1s ease-in-out;
+      fill: var(--rating-star-default-color);
+    }
+
+    &:hover,
+    &.is-current {
+      svg {
+        fill: var(--rating-star-active-color);
+      }
+    }
+  }
+
+  // Only the selected li and the previous ones
+  &:has(> .is-current) {
+    > li:not(.is-current ~ li) {
+      svg {
+        fill: var(--rating-star-active-color);
+      }
+    }
+  }
+
+  // Only the hovered over li and the previous ones
+  &:hover {
+    > li:hover,
+    > li {
+      &:not(:hover ~ li) {
+          svg {
+            fill: var(--rating-star-active-color);
+          }
+      }
+    }
+  }
+}

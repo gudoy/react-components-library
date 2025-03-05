@@ -1,0 +1,65 @@
+.form {
+  > .message {
+    display: flex;
+    border-width: 1px;
+    border-style: solid;
+    padding: var(--spacing-2);
+    margin-bottom: var(--spacing-3);
+    border-radius: var(--radius-small);
+
+    .icon {
+      margin: calc(var(--spacing-1)/2) var(--spacing-3) 0 var(--spacing-2);
+      width: 20px;
+      height: 20px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    &.is-error {
+      border-color: currentColor;
+      background-color: var(--danger-variant-color);
+      color: var(--danger-color);
+    }
+    &.is-success {
+      border-color: currentColor;
+      background-color: var(--success-variant-color);
+      color: var(--success-color);
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+
+    .legend {
+      color: var(--danger-color);
+      font-weight: 500;
+      margin-right: auto;
+      align-self: flex-end;
+    }
+
+    .action {
+      display: inline-flex;
+    }
+
+    .cancel-action {
+      margin-right: auto;
+    }
+  }
+}
+
+body {
+  // The following is a workaround for user using 1Password extension
+  // The 1Password button is overlapping the show password button
+  &:has(com-1password-button) {
+    .form {
+      .field-input {
+        .show-password-action {
+          right: 40px;
+        }
+      }
+    }
+  }
+}
