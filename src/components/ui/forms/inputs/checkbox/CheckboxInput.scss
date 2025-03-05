@@ -1,0 +1,70 @@
+.input-wrapper.checkbox-input {
+  display: flex;
+  align-items: start;
+  position: relative;
+
+  > label {
+    flex: 1;
+  }
+}
+
+input[type="checkbox"]:not(.ant-checkbox-input) {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-radius: 4px;
+  position: relative;
+  z-index: 2;
+  border: 2px solid var(--input-border-color);
+
+  &:hover:not(:disabled) {
+    + label {
+
+      &:before {
+        width: 40px;
+        height: 40px;
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba(238, 238, 238, 1);
+        z-index: 1;
+        border-radius: 50%;
+        translate: -10px -9.5px
+      }
+    }
+  }
+
+  + label {
+    margin-left: 12px;
+
+    font-family: var(--input-font-family);
+    font-size: var(--form-label-font-size);
+    line-height: var(--form-label-line-height);
+    font-weight: 600;
+    // color: color-mix(in srgb, var(--outline-focus-color) 80%, transparent);
+    // color: rgba(34, 44, 54, 1);
+    color: var(--form-label-color);
+  }
+
+  &:checked {
+    // background-color: rgba(23, 21, 20, 1);
+    // TODO: Check with Yann to only get the check path
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='red' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 0C1.79086 0 0 1.79086 0 4V16C0 18.2091 1.79086 20 4 20H16C18.2091 20 20 18.2091 20 16V4C20 1.79086 18.2091 0 16 0H4ZM15.669 7.11207C16.126 6.61216 16.1075 5.82094 15.6276 5.34483C15.1477 4.86872 14.3881 4.88802 13.931 5.38793L7.94286 11.9375L6.06897 9.88793C5.6119 9.38802 4.85233 9.36872 4.37242 9.84483C3.8925 10.3209 3.87397 11.1122 4.33104 11.6121L7.07389 14.6121C7.30038 14.8598 7.61445 15 7.94286 15C8.27127 15 8.58533 14.8598 8.81182 14.6121L15.669 7.11207Z' fill='%23171514'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-origin: border-box;
+    border-color: transparent;
+  }
+
+  &:disabled {
+    border-color: var(--input-disabled-border-color);
+    cursor: not-allowed;
+
+    + label {
+      color: var(--input-disabled-color);
+      cursor: not-allowed;
+    }
+  }
+}

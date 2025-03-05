@@ -1,0 +1,11 @@
+:root {
+  --main-nav-font-family: inherit;
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: var(--main-nav-font-family);
+}

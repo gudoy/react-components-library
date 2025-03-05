@@ -1,0 +1,23 @@
+:root {
+    --app-logo-height: 80px;
+    --app-logo-width: var(--app-logo-height);
+}
+
+.app-logo {
+    display: block;
+
+    img {
+        display: block;
+        width: var(--app-logo-width);
+        height: var(--app-logo-height);
+        aspect-ratio: 1;
+        max-width: 100%;
+    }
+
+    // <80px (minimized header)
+    @container (width < 5rem) {
+        --app-logo-height: 44px;
+        border: 2px solid green;
+    }
+}
+

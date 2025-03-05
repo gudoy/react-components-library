@@ -1,0 +1,29 @@
+.radio-group {
+  min-height: 48px;
+  padding: var(--input-horizontal-padding);
+  font-size: var(--input-font-size);
+  line-height: var(--input-line-height);
+  font-weight: var(--input-font-weight);
+  color: var(--input-color);
+  margin-bottom: 0;
+
+  .radio-item {
+    margin-right: var(--input-horizontal-padding);;
+  }
+
+  input {
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  label {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: var(--input-font-family);
+    color: var(--input-color);
+    font-size: var(--input-font-size);
+    line-height: var(--input-line-height);
+    font-weight: var(--input-font-weight);
+  }
+}

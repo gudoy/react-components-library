@@ -1,0 +1,15 @@
+
+.link {
+  text-decoration: underline;
+}
+
+a.link {
+  display: flex;
+  align-items: center;
+
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

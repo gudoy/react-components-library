@@ -1,0 +1,65 @@
+:root {
+  --select-arrow-icon: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 8.5L12 15.5L5 8.5' stroke='%23171514' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  --select-disabled-arrow-icon: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 8.5L12 15.5L5 8.5' stroke='%23b8c8d6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+}
+
+.select-wrapper {
+  position: relative;
+
+  &[data-placeholder] {
+    &::after {
+        content: attr(data-placeholder);
+        position: absolute;
+        top: 50%;
+        left: var(--input-horizontal-padding);
+        transform: translateY(-50%);
+        color: var(--input-placeholder-color);
+        pointer-events: none;
+        font-family: var(--input-font-family);
+    }
+  }
+
+  &:has(select:valid) {
+    &[data-placeholder] {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  select:not(:where(.ant-form input)) {
+    min-height: 48px;
+    padding: 0 36px 0 var(--input-horizontal-padding);
+    border-radius: var(--input-border-radius);
+    border: var(--input-border-width) solid var(--input-border-color);
+    color: var(--input-color);
+    font-size: var(--input-font-size);
+    line-height: var(--input-line-height);
+    font-weight: var(--input-font-weight);
+    outline: none;
+    box-shadow: none;
+    font-family: var(--input-font-family);
+
+    appearance: none;
+    background-color: var(--input-background-color);
+    background-image: var(--select-arrow-icon);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) 50%;
+
+    &:focus {
+      border-color: var(--input-border-focus-color);
+      box-shadow: var(--input-box-shadow);
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:disabled {
+      color: var(--input-disabled-color);
+      cursor: not-allowed;
+      background-image: var(--select-disabled-arrow-icon);
+    }
+  }
+}
+

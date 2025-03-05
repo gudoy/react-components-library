@@ -1,0 +1,96 @@
+:root {
+    --main-nav-item-icon-size: 44px;
+
+    
+    --main-nav-item-border-radius: 8px;
+    --main-nav-item-font-size: 1rem;
+    --main-nav-item-line-height: normal;
+
+    // default
+    --main-nav-item-color: white;
+    --main-nav-item-background-color: transparent;
+    --main-nav-item-border-color: ;
+    
+    // Hover
+    --main-nav-item-hover-border-color: color-mix(in srgb, black, white 40%);
+    --main-nav-item-hover-background-color: color-mix(in srgb, black, white 30%);
+
+    // Focus
+    --main-nav-item-focus-border-color: color-mix(in srgb, black, white 80%);
+    --main-nav-item-focus-background-color: transparent;
+
+    // Selected
+    --main-nav-item-selected-border-color: color-mix(in srgb, black, white 80%);
+    --main-nav-item-selected-background-color: color-mix(in srgb, black, white 70%);
+}
+
+
+.main-nav-item {
+  width: 100%;
+
+  margin-block-end: 1rem;
+
+  background-color: var(--main-nav-item-background-color);
+  border-radius: var(--main-nav-item-border-radius);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--main-nav-item-border-color);
+
+  > a {
+    display: flex;
+    align-items: center;
+    color: var(--main-nav-item-color);
+    border-radius: var(--main-nav-item-border-radius);
+    text-decoration: none;
+    // background: green;
+
+    .icon {
+      width: var(--main-nav-item-icon-size);
+      height: var(--main-nav-item-icon-size);
+      display: flex;
+      place-content: center;
+
+      border-radius: var(--main-nav-item-border-radius);
+      font-size: 1.8rem;
+      
+      :has(+ .label) {
+        margin-right: 12px;
+      }
+    }
+
+    .label {
+      max-width: 100%;
+      transition: color, max-width 0.3s ease-in-out;
+      font-size: var(--main-nav-item-font-size);
+      display: block;
+      overflow: hidden;
+    }
+
+    &:hover {
+      background-color: var(--main-nav-item-hover-background-color);
+      border-color: var(--main-nav-item-hover-border-color);
+    }
+
+    &:focus {
+      background-color: var(--main-nav-item-focus-background-color);
+      border-color: var(--main-nav-item-focus-border-color);
+    }
+  }
+
+  &.is-current {
+    background-color: var(--main-nav-item-selected-background-color);
+    border-color: var(--main-nav-item-selected-border-color);
+  }
+
+  // < 80px (minimized header)
+  @container (width <= 5rem) {
+
+      // Hide labels and just keep the icons
+      > a {
+        .label {
+            max-width: 0;
+            max-height: 0;
+        }
+    } 
+  }
+}
