@@ -2,12 +2,18 @@ import { PropsWithChildren } from 'react';
 
 import './Icon.scss';
 
-type IconProps = PropsWithChildren;
+export type IconProps = PropsWithChildren<{
+  className?: string;
+}>;
 
 function Icon(props: IconProps) {
-  const { children } = props;
+  const { children, className } = props;
 
-  return <span className="icon">{children}</span>;
+  const classnames = `icon ${className}`.trim();
+
+  return (
+    <span className={classnames}>{children}</span>
+  );
 }
 
 export default Icon;

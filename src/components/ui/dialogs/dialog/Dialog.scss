@@ -14,32 +14,28 @@
   background-color: rgb(0 0 0 / 0.1);
 
   .dialog-wrapper {
-    height: auto;
-    width: auto;
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+
+    z-index: 10; // TODO: why 10?
+    padding: var(--spacing-3) var(--spacing-2);
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     min-width: 20rem;
     max-width: 42rem;
-    overflow-y: auto;
-
-
+    border-radius: var(--radius-small);
     display: flex;
     flex-direction: column;
-
-    z-index: 10;
-
     margin: 0 auto;
-    padding: var(--spacing-3) var(--spacing-2);
-
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--main-border-color);
-    background-color: var(--main-background-color);
-    box-shadow: 0 24px 24px -8px rgb(0 0 0 / 0.1);
-    border-radius: var(--main-border-radius);
+    height: auto;
+    width: auto;
 
     > .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid rgb(241 245 249);
       padding: var(--spacing-3);
     }
 
