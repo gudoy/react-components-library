@@ -15,6 +15,7 @@ export default [
       globals: globals.browser,
     },
     rules: {
+      '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       // turn on errors for missing imports
       'import/no-unresolved': 'error',

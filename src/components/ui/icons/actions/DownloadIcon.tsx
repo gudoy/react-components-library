@@ -1,4 +1,6 @@
-import Icon, { IconProps } from '@/components/ui/icons/icon/Icon';
+import Icon from '@/components/ui/icons/icon/Icon';
+
+import type { IconProps } from '@/components/ui/icons/icon/Icon';
 
 const DownloadIcon = (props: IconProps) => {
   return (

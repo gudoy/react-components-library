@@ -1,4 +1,6 @@
-import { MouseEventHandler, useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+
+import type { MouseEventHandler} from 'react';
 
 function useToggleClassname(selector: string, classname: string) {
   const elementRef = useRef<HTMLElement | null>(null);

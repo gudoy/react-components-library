@@ -1,18 +1,17 @@
-import { MouseEventHandler, useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+
+import type { MouseEventHandler} from 'react';
 
 function useToggleHeader(headerSelector = '#header') {
   const headerRef = useRef<HTMLElement | null>(null);
 
-  const handleToggleClick: MouseEventHandler = useCallback(
-    (e) => {
-      e.preventDefault();
+  const handleToggleClick: MouseEventHandler = useCallback((e) => {
+    e.preventDefault();
 
-      if (headerRef.current) {
-        headerRef.current.classList.toggle('is-open');
-      }
-    },
-    [headerRef.current]
-  );
+    if (headerRef.current) {
+      headerRef.current.classList.toggle('is-open');
+    }
+  }, []);
 
   useEffect(() => {
     if (headerRef.current) {
@@ -20,7 +19,7 @@ function useToggleHeader(headerSelector = '#header') {
     }
 
     headerRef.current = document.querySelector(headerSelector);
-  }, []);
+  }, [headerSelector]);
 
   return { onClick: handleToggleClick };
 }
