@@ -22,7 +22,7 @@ function Dialog(props: DialogProps) {
     className = '',
     title,
     isOpen = false,
-    modal = false, // TODO: Temporary setting to true for backward compatibility but this should be false by default
+    modal = false,
     onClose = () => undefined,
     children,
     innerRef,
