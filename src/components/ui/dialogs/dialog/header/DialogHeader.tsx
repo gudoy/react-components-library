@@ -1,6 +1,6 @@
 import { type ReactNode, type MouseEventHandler } from 'react';
 
-import CloseDialogAction from '@/components/ui/dialogs/dialog0/header/closeAction/CloseDialogAction';
+import CloseDialogAction from '@/components/ui/dialogs/dialog/header/closeAction/CloseDialogAction';
 
 type DialogHeaderProps = {
   onClose: MouseEventHandler;

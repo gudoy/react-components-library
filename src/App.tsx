@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
 import Button from '@/components/ui/buttons/button/Button';
-import Dialog from '@/components/ui/dialogs/dialog0/Dialog';
+import Dialog from '@/components/ui/dialogs/dialog/Dialog';
 import { useTranslation } from '@/utils/i18n';
 
 import Header from './components/ui/layout/header/Header';
