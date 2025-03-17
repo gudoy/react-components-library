@@ -1,16 +1,16 @@
 import { memo, useCallback } from 'react';
 
-import AccountNavList from '@/components/ui/layout/header/mainNav/lists/AccountNavList';
-import MainNavList from '@/components/ui/layout/header/mainNav/lists/MainNavList';
 
 import HomeIcon from '@/components/ui/icons/navigation/HomeIcon';
 import LogoutIcon from '@/components/ui/icons/navigation/LogoutIcon';
 import PortfolioIcon from '@/components/ui/icons/navigation/PortfolioIcon';
+import SettingsIcon from '@/components/ui/icons/navigation/SettingsIcon';
 import ShopIcon from '@/components/ui/icons/navigation/ShopIcon';
 import StatsIcon from '@/components/ui/icons/navigation/StatsIcon';
 import UserIcon from '@/components/ui/icons/navigation/UserIcon';
 import MainNavItem from '@/components/ui/layout/header/mainNav/item/MainNavItem';
-import SettingsIcon from '@/components/ui/icons/navigation/SettingsIcon';
+import AccountNavList from '@/components/ui/layout/header/mainNav/lists/AccountNavList';
+import MainNavList from '@/components/ui/layout/header/mainNav/lists/MainNavList';
 import { useTranslation } from '@/utils/i18n';
 
 import './MainNav.scss';

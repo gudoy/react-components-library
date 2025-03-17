@@ -10,7 +10,6 @@ import tsEslint from 'typescript-eslint';
 export default [
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,
       globals: globals.browser,
@@ -54,6 +53,7 @@ export default [
   ...tsEslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat['jsx-runtime'],
+  importPlugin.flatConfigs.recommended,
   eslintConfigPrettier,
   // pluginReactHooks.configs.flat.recommended, // TODO: the plugin does not seem to export flat configs (eslint 9) for now. Uncomment this and remove the object below once supported
   {

@@ -1,12 +1,11 @@
 import { type MouseEvent, type ReactNode, type RefObject } from 'react';
 
 import Button from '@/components/ui/buttons/button/Button';
+import useClosable from '@/components/ui/dialogs/dialog/useClosable';
 import CloseIcon from '@/components/ui/icons/actions/CloseIcon';
-
 import { useTranslation } from '@/utils/i18n';
 
 import './Dialog.scss';
-import useClosable from '@/components/ui/dialogs/dialog/useClosable';
 
 export type DialogProps = {
   isOpen: boolean;

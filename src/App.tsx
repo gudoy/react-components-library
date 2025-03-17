@@ -1,12 +1,14 @@
+import { useCallback, useState } from 'react';
+
+import Button from '@/components/ui/buttons/button/Button';
+import Dialog from '@/components/ui/dialogs/dialog/Dialog';
+import { useTranslation } from '@/utils/i18n';
+
 import Header from './components/ui/layout/header/Header';
 import ToggleMainMavButton from './components/ui/layout/header/toggleHeaderButton/ToggleHeaderButton';
 import Page from './components/ui/layout/page/Page';
 
 import './App.scss';
-import Button from '@/components/ui/buttons/button/Button';
-import { useTranslation } from '@/utils/i18n';
-import Dialog from '@/components/ui/dialogs/dialog/Dialog';
-import { useCallback, useState } from 'react';
 
 function App() {
   const { t } = useTranslation();

@@ -6,23 +6,28 @@ import {
   type SyntheticEvent,
   type FocusEvent,
   type ComponentProps,
-  useMemo,
+  // useMemo,
   useEffect,
+  useRef,
 } from 'react';
-import DataListInput from 'react-datalist-input';
+// import DataListInput from 'react-datalist-input';
 import { useTranslation } from 'react-i18next';
-import { FaCircleCheck, FaCircleXmark, FaRegEyeSlash, FaRegEye } from 'react-icons/fa6';
+// import { FaCircleCheck, FaCircleXmark, FaRegEyeSlash, FaRegEye } from 'react-icons/fa6';
 
 // import DataListInput from '@/components/Form/Field/DatalistInput/DataListInput'
-import type { RadioOption } from '@/components/Form/Field/RadioGroup/RadioGroup';
-import type { SelectOptions } from '@/components/Form/Field/Select/Select';
+import CheckboxInput from '@/components/ui/forms/inputs/checkbox/CheckboxInput';
+import FileInput from '@/components/ui/forms/inputs/file/FileInput';
+import Input from '@/components/ui/forms/inputs/Input';
+import RadioGroup from '@/components/ui/forms/inputs/radioGroup/RadioGroup';
+import Select from '@/components/ui/forms/inputs/select/Select';
+import Textarea from '@/components/ui/forms/inputs/textarea/Textarea';
+import ViewCloseIcon from '@/components/ui/icons/actions/ViewCloseIcon';
+import ViewIcon from '@/components/ui/icons/actions/ViewIcon';
+import ErrorIcon from '@/components/ui/icons/states/ErrorIcon';
+import ValidIcon from '@/components/ui/icons/states/ValidIcon';
 
-import CheckboxInput from '@/components/Form/Field/CheckboxInput/CheckboxInput';
-import FileInput from '@/components/Form/Field/FileInput/FileInput';
-import Input from '@/components/Form/Field/Input/Input';
-import RadioGroup from '@/components/Form/Field/RadioGroup/RadioGroup';
-import Select from '@/components/Form/Field/Select/Select';
-import Textarea from '@/components/Form/Field/Textarea/Textarea';
+import type { RadioOption } from '@/components/ui/forms/inputs/radioGroup/RadioGroup';
+import type { SelectOptions } from '@/components/ui/forms/inputs/select/Select';
 
 import './Field.scss';
 
@@ -289,7 +294,7 @@ const Field = (props: FieldProps) => {
       value !== null &&
       value !== undefined &&
       value !== '') ||
-    (Array.isArray(value) && (value as Array<any>).length > 0);
+    (Array.isArray(value) && (value as Array<string | number>).length > 0);
 
   const [isValid, setIsValid] = useState<boolean | null>(
     !disabled && (isPristine || hasValue) ? checkValidity(value, checked).isValid : null
@@ -316,7 +321,7 @@ const Field = (props: FieldProps) => {
     [validation, isValid, disabled, onValidityChange, checkValidity]
   );
 
-  let fieldValidationTimeoutId: ReturnType<typeof setTimeout>;
+  const fieldValidationTimeoutIdRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /**
    * Handler called when the value of the field change
@@ -329,27 +334,30 @@ const Field = (props: FieldProps) => {
 
       setIsPristine(false);
 
-      clearTimeout(fieldValidationTimeoutId);
-      fieldValidationTimeoutId = setTimeout(() => {
+      if (fieldValidationTimeoutIdRef.current) {
+        clearTimeout(fieldValidationTimeoutIdRef.current);
+      }
+
+      fieldValidationTimeoutIdRef.current = setTimeout(() => {
         validateField(value, isChecked);
       }, 300);
 
       // @ts-expect-error fixme
       onChange(event);
     },
-    [onChange, validateField]
+    [type, onChange, validateField]
   );
 
-  const handleDatalistSelectItem = useCallback(
-    (item) => {
-      const { value } = item;
-      setIsPristine(false);
-      validateField(value);
-      // @ts-expect-error fixme
-      onChange({ target: { value } });
-    },
-    [onChange, validateField]
-  );
+  // const handleDatalistSelectItem = useCallback(
+  //   (item) => {
+  //     const { value } = item;
+  //     setIsPristine(false);
+  //     validateField(value);
+  //     // @ts-expect-error fixme
+  //     onChange({ target: { value } });
+  //   },
+  //   [onChange, validateField]
+  // );
 
   /**
    * Handler called when the input lose focus
@@ -387,11 +395,11 @@ const Field = (props: FieldProps) => {
       .trimEnd();
   const usedType = type === 'password' && isPasswordShown ? 'text' : type;
   const shouldUseBaseInput = !['select', 'textarea', 'datalist', 'radio', 'checkbox', 'file', 'custom'].includes(type);
-  const datalistOptions = useMemo(() => {
-    return type === 'datalist'
-      ? ((options || []) as DatalistOption[]).map(({ label, value }) => ({ label, value, key: value || label }))
-      : [];
-  }, [type, options]);
+  // const datalistOptions = useMemo(() => {
+  //   return type === 'datalist'
+  //     ? ((options || []) as DatalistOption[]).map(({ label, value }) => ({ label, value, key: value || label }))
+  //     : [];
+  // }, [type, options]);
 
   return (
     <div
@@ -429,23 +437,19 @@ const Field = (props: FieldProps) => {
             {...forwardableProps}
           />
         )}
-        {type === 'textarea' &&
-          (() => {
-            // const { placeholder, rows = 3, ..._others } = rest
-            return <Textarea onBlur={handleBlur} onChange={handleChange} {...forwardableProps} />;
-          })()}
-        {type === 'datalist' && (
-          // TODO: Finish implementing the below custom component instead of using the react-datalist-input
-          // <DataListInput name={name} options={options} onChange={handleChange} {...forwardableProps} />
-          <DataListInput
-            itemClassName="datalist-item"
-            items={datalistOptions}
-            value={value}
-            onBlur={handleBlur}
-            onSelect={handleDatalistSelectItem}
-            {...forwardableProps}
-          />
-        )}
+        {type === 'textarea' && <Textarea onBlur={handleBlur} onChange={handleChange} {...forwardableProps} />}
+        {/*{type === 'datalist' && (*/}
+        {/*  // TODO: Finish implementing the below custom component instead of using the react-datalist-input*/}
+        {/*  // <DataListInput name={name} options={options} onChange={handleChange} {...forwardableProps} />*/}
+        {/*  <DataListInput*/}
+        {/*    itemClassName="datalist-item"*/}
+        {/*    items={datalistOptions}*/}
+        {/*    value={value}*/}
+        {/*    onBlur={handleBlur}*/}
+        {/*    onSelect={handleDatalistSelectItem}*/}
+        {/*    {...forwardableProps}*/}
+        {/*  />*/}
+        {/*)}*/}
         {type === 'file' && <FileInput onBlur={handleBlur} onChange={handleChange} {...forwardableProps} />}
         {type === 'custom' && <>{input && input}</>}
         {shouldUseBaseInput && (
@@ -460,13 +464,13 @@ const Field = (props: FieldProps) => {
         )}
         {type === 'password' && (
           <button className="show-password-action" type="button" onClick={handleShowPasswordClick}>
-            {isPasswordShown && <FaRegEyeSlash />}
-            {!isPasswordShown && <FaRegEye />}
+            {isPasswordShown && <ViewCloseIcon />}
+            {!isPasswordShown && <ViewIcon />}
           </button>
         )}
 
-        {isValid === true && <FaCircleCheck className="status is-valid" />}
-        {!isValid && isError === true && <FaCircleXmark className="status is-error" />}
+        {isValid === true && <ValidIcon className="status is-valid" />}
+        {!isValid && isError === true && <ErrorIcon className="status is-error" />}
         {hint && (
           <div className="hint">
             <span className="icon">ⓘ</span>

@@ -1,8 +1,8 @@
-import Icon from '@/components/ui/icons/icon/Icon';
+import Icon, { IconProps } from '@/components/ui/icons/icon/Icon';
 
-function InfoIcon() {
+function InfoIcon(props: IconProps) {
   return (
-    <Icon>
+    <Icon {...props}>
       <svg width="24" height="24" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="10" />
         <path d="M12 16v-4" />

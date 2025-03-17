@@ -1,10 +1,11 @@
+import { t } from 'i18next';
+import { useCallback } from 'react';
+
 import Button from '@/components/ui/buttons/button/Button';
 import LessIcon from '@/components/ui/icons/actions/LessIcon';
+import MoreIcon from '@/components/ui/icons/actions/MoreIcon';
 
 import './ToggleHeaderSizeButton.scss';
-import { useCallback } from 'react';
-import { t } from 'i18next';
-import MoreIcon from '@/components/ui/icons/actions/MoreIcon';
 
 type ToggleHeaderSizeButton = {
   isMinimized: boolean;

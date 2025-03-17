@@ -1,7 +1,6 @@
 import AppLogo from '@/components/ui/layout/header/appLogo/AppLogo';
 import MainNav from '@/components/ui/layout/header/mainNav/MainNav';
 import ToggleHeaderSizeButton from '@/components/ui/layout/header/toggleHeaderSizeButton/ToggleHeaderSizeButton';
-
 import useToggleIsMinimized from '@/hooks/useToggleIsMinimized';
 
 import './Header.scss';

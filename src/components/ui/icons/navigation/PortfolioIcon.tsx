@@ -1,8 +1,8 @@
-import Icon from '@/components/ui/icons/icon/Icon';
+import Icon, { IconProps } from '@/components/ui/icons/icon/Icon';
 
-function PortfolioIcon() {
+function PortfolioIcon(props: IconProps) {
   return (
-    <Icon>
+    <Icon {...props}>
       <svg width="24" height="24" viewBox="0 0 24 24">
         <path d="M12 12h.01" />
         <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />

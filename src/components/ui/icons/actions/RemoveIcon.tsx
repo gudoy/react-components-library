@@ -1,8 +1,8 @@
-import Icon from '@/components/ui/icons/icon/Icon';
+import Icon, { IconProps } from '@/components/ui/icons/icon/Icon';
 
-function RemoveIcon() {
+function RemoveIcon(props: IconProps) {
   return (
-    <Icon>
+    <Icon {...props}>
       <svg width="24" height="24" viewBox="0 0 24 24">
         <path d="M3 6h18" />
         <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />

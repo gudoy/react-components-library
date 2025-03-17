@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import Label from '@/components/ui/label/Label';
 import LoadingIcon from '@/components/ui/icons/loading/LoadingIcon';
+import Label from '@/components/ui/label/Label';
 
 import './Loader.scss';
 

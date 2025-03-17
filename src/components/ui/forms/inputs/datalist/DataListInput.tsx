@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+
 import Input from '@/components/ui/forms/inputs/Input';
 
 import './DatalistInput.scss';
