@@ -1,8 +1,8 @@
 import { useCallback, useLayoutEffect, type MouseEvent, type ReactNode, type RefObject } from 'react';
 
-import DialogHeader from '@/components/ui/dialogs/dialog/header/DialogHeader';
-import useCloseWithMaybeAnimation from '@/components/ui/dialogs/dialog/useCloseWithMaybeAnimation';
-import usePreventClickOutside from '@/components/ui/dialogs/dialog/usePreventClickOutside';
+import DialogHeader from '@/components/ui/dialogs/dialog0/header/DialogHeader';
+import useCloseWithMaybeAnimation from '@/components/ui/dialogs/dialog0/useCloseWithMaybeAnimation';
+import usePreventClickOutside from '@/components/ui/dialogs/dialog0/usePreventClickOutside';
 
 import './Dialog.scss';
 
