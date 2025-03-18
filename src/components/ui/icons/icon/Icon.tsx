@@ -11,9 +11,7 @@ function Icon(props: IconProps) {
 
   const classnames = `icon ${className}`.trim();
 
-  return (
-    <span className={classnames}>{children}</span>
-  );
+  return <span className={classnames}>{children}</span>;
 }
 
 export default Icon;

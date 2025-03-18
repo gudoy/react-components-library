@@ -1,27 +1,27 @@
 :root {
-    --app-logo-height: 80px;
-    --app-logo-width: var(--app-logo-height);
-    --app-logo-border-color: var(--main-border-color)
+  --app-logo-height: 80px;
+  --app-logo-width: var(--app-logo-height);
+  --app-logo-border-color: var(--main-border-color);
 }
 
 .app-logo {
-    display: inline-flex;
+  display: inline-flex;
 
-    border-color: var(--app-logo-border-color);
-    border-width: 1px;
-    border-style: solid;
+  border-color: var(--app-logo-border-color);
+  border-width: 1px;
+  border-style: solid;
 
-    img, svg {
-        display: block;
-        width: var(--app-logo-width);
-        height: auto;
-        aspect-ratio: 1;
-        max-width: 100%;
-    }
+  img,
+  svg {
+    display: block;
+    width: var(--app-logo-width);
+    height: auto;
+    aspect-ratio: 1;
+    max-width: 100%;
+  }
 
-    // <80px (minimized header)
-    @container (width < 5rem) {
-        --app-logo-width: 44px;
-    }
+  // <80px (minimized header)
+  @container (width < 5rem) {
+    --app-logo-width: 44px;
+  }
 }
-

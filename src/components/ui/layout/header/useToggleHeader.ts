@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-import type { MouseEventHandler} from 'react';
+import type { MouseEventHandler } from 'react';
 
 function useToggleHeader(headerSelector = '#header') {
   const headerRef = useRef<HTMLElement | null>(null);

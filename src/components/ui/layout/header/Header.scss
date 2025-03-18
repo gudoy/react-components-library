@@ -21,7 +21,7 @@
   border-style: solid;
   border-color: var(--header-border-color);
   color: var(--header-text-color);
-  transition: .280s cubic-bezier(0.1, 0, 0, 1);
+  transition: 0.28s cubic-bezier(0.1, 0, 0, 1);
   transition-property: translate, max-width;
   translate: -100% 0;
 
@@ -55,19 +55,18 @@
 
   // Desktop (>= 1024px)
   @container (width >= 64rem) {
-
     // Make the menu always visible on the left
     position: relative;
     translate: none;
 
     &.is-minimized {
-      max-width: var(--header-minimized-width)
+      max-width: var(--header-minimized-width);
     }
 
     &.is-open {
       + .page {
         translate: 0;
-      } 
+      }
     }
   }
 }

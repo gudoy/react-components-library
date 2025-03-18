@@ -38,9 +38,9 @@
     > li:hover,
     > li {
       &:not(:hover ~ li) {
-          svg {
-            fill: var(--rating-star-active-color);
-          }
+        svg {
+          fill: var(--rating-star-active-color);
+        }
       }
     }
   }

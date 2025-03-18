@@ -1,4 +1,4 @@
-import { useCallback, type SyntheticEvent, type ReactNode } from 'react';
+import { useCallback, type ReactNode, type FormEventHandler } from 'react';
 
 import ErrorIcon from '@/components/ui/icons/notifications/ErrorIcon';
 
@@ -6,7 +6,7 @@ type FormProps = {
   /** Content */
   children: ReactNode;
 
-  /** Id of the form */
+  /** ID of the form */
   id?: string;
 
   /** Additional classes */
@@ -19,7 +19,7 @@ type FormProps = {
   method?: 'get' | 'post';
 
   /** The event handler to be fired when the form is submitted */
-  onSubmit?: (event: SyntheticEvent) => void;
+  onSubmit?: FormEventHandler;
 
   /** Error message to display */
   error?: string;
@@ -49,7 +49,7 @@ const Form = (props: FormProps) => {
   /**
    * Handler called when the form is submitted
    */
-  const handleSubmit = useCallback(
+  const handleSubmit = useCallback<FormEventHandler>(
     async (event) => {
       event.preventDefault();
 

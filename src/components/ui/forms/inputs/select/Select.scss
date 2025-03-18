@@ -8,14 +8,14 @@
 
   &[data-placeholder] {
     &::after {
-        content: attr(data-placeholder);
-        position: absolute;
-        top: 50%;
-        left: var(--input-horizontal-padding);
-        transform: translateY(-50%);
-        color: var(--input-placeholder-color);
-        pointer-events: none;
-        font-family: var(--input-font-family);
+      content: attr(data-placeholder);
+      position: absolute;
+      top: 50%;
+      left: var(--input-horizontal-padding);
+      transform: translateY(-50%);
+      color: var(--input-placeholder-color);
+      pointer-events: none;
+      font-family: var(--input-font-family);
     }
   }
 
@@ -62,4 +62,3 @@
     }
   }
 }
-

@@ -1,10 +1,10 @@
 .page {
-    width: 100%;
-    transition: translate 0.3s ease-in-out;
-    padding: 20px;
+  width: 100%;
+  transition: translate 0.3s ease-in-out;
+  padding: 20px;
 
-    @container (width >= 64rem) {
-        width: auto;
-        flex: 1;
-    }
+  @container (width >= 64rem) {
+    width: auto;
+    flex: 1;
+  }
 }

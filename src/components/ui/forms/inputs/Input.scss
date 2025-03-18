@@ -15,7 +15,7 @@
   --input-error-color: var(--danger-color);
   --input-valid-color: var(--success-color);
   --input-disabled-border-color: var(--text-disabled-dark-color);
-  --input-disabled-color: var(--text-disabled-dark-color)
+  --input-disabled-color: var(--text-disabled-dark-color);
 }
 
 .input-wrapper {
@@ -38,7 +38,7 @@
 input {
   // TODO: remove the following once Ant Design will have been totally removed
   &:not(:where(.ant-form input, .ant-input-affix-wrapper input, .ant-picker-input input)) {
-    &:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+    &:not([type='checkbox']):not([type='radio']):not([type='file']) {
       min-height: var(--input-min-height);
       padding: 0 var(--input-horizontal-padding);
       border-radius: var(--input-border-radius);
@@ -74,7 +74,4 @@ input {
       }
     }
   }
-
 }
-
-

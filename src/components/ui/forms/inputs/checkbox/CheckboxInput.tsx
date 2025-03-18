@@ -1,16 +1,16 @@
-import { type ReactNode } from 'react'
+import { type ReactNode } from 'react';
 
-import './CheckboxInput.scss'
+import './CheckboxInput.scss';
 
 type CheckBoxInputProps = {
-  checked?: boolean
-  label?: ReactNode
-  value?: string | number
-  id?: string
-}
+  checked?: boolean;
+  label?: ReactNode;
+  value?: string | number;
+  id?: string;
+};
 
 const CheckboxInput = (props: CheckBoxInputProps) => {
-  const { checked, label, value, id, ...others } = props
+  const { checked, label, value, id, ...others } = props;
 
   return (
     <span className="checkbox-input input-wrapper">
@@ -19,7 +19,7 @@ const CheckboxInput = (props: CheckBoxInputProps) => {
         {label || value}
       </label>
     </span>
-  )
-}
+  );
+};
 
-export default CheckboxInput
+export default CheckboxInput;

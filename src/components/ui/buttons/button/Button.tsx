@@ -3,7 +3,6 @@ import { type ReactNode, type MouseEvent, type ComponentProps } from 'react';
 import Label from '@/components/ui/label/Label';
 import Loader from '@/components/ui/states/loading/Loader';
 
-
 import './Button.scss';
 
 export type TooltipPosition =

@@ -20,7 +20,7 @@
       font-weight: var(--form-label-font-weight);
       color: var(--form-label-color);
       position: absolute;
-      top: calc(-1 * var(--form-label-line-height)/2);
+      top: calc(-1 * var(--form-label-line-height) / 2);
       left: 10px;
       z-index: 2;
       padding: 0 4px;
@@ -57,14 +57,14 @@
     }
 
     select,
-    input:not([type="checkbox"]):not([type="radio"]),
+    input:not([type='checkbox']):not([type='radio']),
     textarea {
       width: 100%;
     }
 
     .hint {
       font-size: 11px;
-      color: #222C36CC;
+      color: #222c36cc;
       line-height: 16px;
       font-weight: 600;
       padding-top: 8px;
@@ -138,7 +138,7 @@
   //  }
   //}
 
-  &[data-type="checkbox"] {
+  &[data-type='checkbox'] {
     .status {
       // left: 22px;
       // top: 4px;
@@ -174,8 +174,3 @@
     }
   }
 }
-
-
-
-
-

@@ -1,34 +1,34 @@
-import { type ChangeEvent, type FocusEventHandler } from 'react'
+import { type ChangeEvent, type FocusEventHandler } from 'react';
 
-import './Select.scss'
+import './Select.scss';
 
 export type SelectOptionGroup = {
-  label: string
-  options: SelectOption[]
-  key?: string | number
-  disabled?: boolean
-}
+  label: string;
+  options: SelectOption[];
+  key?: string | number;
+  disabled?: boolean;
+};
 
 export type SelectOption = {
-  label?: string
-  value: string
-  disabled?: boolean
-  key?: string | number
-}
+  label?: string;
+  value: string;
+  disabled?: boolean;
+  key?: string | number;
+};
 
-export type SelectOptions = SelectOption[] | SelectOptionGroup[]
+export type SelectOptions = SelectOption[] | SelectOptionGroup[];
 
 type SelectProps = {
-  name: string
-  options: SelectOptions
-  value?: string | number
-  id?: string
-  onBlur?: FocusEventHandler
-  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void
-  placeholder?: string
-  disabled?: boolean
-  required?: boolean
-}
+  name: string;
+  options: SelectOptions;
+  value?: string | number;
+  id?: string;
+  onBlur?: FocusEventHandler;
+  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
+  placeholder?: string;
+  disabled?: boolean;
+  required?: boolean;
+};
 
 const Select = (props: SelectProps) => {
   const {
@@ -41,51 +41,51 @@ const Select = (props: SelectProps) => {
     placeholder,
     disabled,
     ...rest
-  } = props
+  } = props;
 
-  const usedId = id || name
+  const usedId = id || name;
 
   return (
     // The following wrapper is used to display the placeholder text when no value is selected
     <span className="input-wrapper select-wrapper" data-placeholder={value !== undefined ? placeholder : undefined}>
       <select disabled={disabled} id={usedId} name={name} value={value} onBlur={onBlur} onChange={onChange} {...rest}>
         {options.map((item: SelectOption | SelectOptionGroup) => {
-          const isOptionGroup = 'options' in item
+          const isOptionGroup = 'options' in item;
 
           if (isOptionGroup) {
-            const { label, options, key } = item
-            const groupKey = key || label
+            const { label, options, key } = item;
+            const groupKey = key || label;
 
             return (
               <optgroup key={groupKey} label={label}>
                 {options.map((item) => {
-                  const { key, value, label, disabled } = item
-                  const itemKey = key ?? value
-                  const displayedLabel = label || value
+                  const { key, value, label, disabled } = item;
+                  const itemKey = key ?? value;
+                  const displayedLabel = label || value;
 
                   return (
                     <option key={itemKey} disabled={disabled} value={value}>
                       {displayedLabel}
                     </option>
-                  )
+                  );
                 })}
               </optgroup>
-            )
+            );
           }
 
-          const { key, value, label, disabled } = item
-          const itemKey = key ?? value
-          const displayedLabel = label || value
+          const { key, value, label, disabled } = item;
+          const itemKey = key ?? value;
+          const displayedLabel = label || value;
 
           return (
             <option key={itemKey} disabled={disabled} value={value}>
               {displayedLabel}
             </option>
-          )
+          );
         })}
       </select>
     </span>
-  )
-}
+  );
+};
 
-export default Select
+export default Select;

@@ -1,4 +1,4 @@
-.radio-input-list[role="radiogroup"] {
+.radio-input-list[role='radiogroup'] {
   --segmented-control-background-color: var(--surface-light-color);
   --segmented-control-border-color: var(--outline-color);
   --segmented-control-text-color: color-mix(in srgb, var(--outline-focus-color) 50%, transparent);
@@ -23,7 +23,6 @@
   --segmented-control-item-with: auto;
   --segmented-control-selected-item-x-pos: 0;
 
-
   list-style: none;
   display: inline-flex;
   flex-direction: row;
@@ -39,12 +38,14 @@
   border-radius: var(--segmented-control-border-radius);
 
   &::before {
-    content: "";
+    content: '';
     background-color: transparent;
     border-radius: var(--segmented-control-border-radius);
     width: calc(var(--segmented-control-item-with) + 2px);
     transform: translateX(calc(var(--segmented-control-selected-item-x-pos) - 1px));
-    transition: transform 0.3s ease, width 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      width 0.3s ease;
     box-shadow: var(--segmented-control-selected-box-shadow);
     border-style: solid;
     border-width: 1px;

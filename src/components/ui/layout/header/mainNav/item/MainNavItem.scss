@@ -14,7 +14,7 @@
   --main-nav-item-selected-text-color: color-mix(in srgb, var(--main-text-color), black 50%);
   --main-nav-item-selected-border-color: var(--main-border-color);
   --main-nav-item-selected-background-color: color-mix(in srgb, var(--main-background-color), white 100%);
-    
+
   // Hover
   --main-nav-item-hover-text-color: color-mix(in srgb, var(--main-text-color), black 50%);
   --main-nav-item-hover-border-color: var(--main-border-color);
@@ -56,7 +56,9 @@
 
     .label {
       max-width: 100%;
-      transition: color, max-width 0.3s ease-in-out;
+      transition:
+        color,
+        max-width 0.3s ease-in-out;
       font-size: var(--main-nav-item-font-size);
       display: block;
       overflow: hidden;
@@ -93,52 +95,52 @@
   @container (width <= 5rem) {
     width: 46px;
 
-      // Hide labels and just keep the icons
-      > a {
+    // Hide labels and just keep the icons
+    > a {
+      .label {
+        max-width: 0;
+        max-height: 0;
+      }
+
+      // Transform the label into a tooltip at the right of the nav item
+      &:hover {
         .label {
-          max-width: 0;
-          max-height: 0;
-        }
+          --tooltip-background-color: var(--main-background-color);
+          --tooltip-border-color: var(--main-border-color);
 
-        // Transform the label into a tooltip at the right of the nav item
-        &:hover {
-          .label {
-            --tooltip-background-color: var(--main-background-color);
-            --tooltip-border-color: var(--main-border-color);
+          max-width: initial;
+          max-height: initial;
+          overflow: visible;
 
-            max-width: initial;
-            max-height: initial;
-            overflow: visible;
+          min-width: 180px;
+          padding: var(--spacing-3) var(--spacing-3);
+          margin-inline-start: var(--spacing-3);
 
-            min-width: 180px;
-            padding: var(--spacing-3) var(--spacing-3);
-            margin-inline-start: var(--spacing-3);
+          position: absolute;
+          left: 100%;
 
+          background: var(--tooltip-background-color);
+          border-width: 1px;
+          border-style: solid;
+          border-color: var(--tooltip-border-color);
+          border-radius: var(--main-nav-item-border-radius);
+
+          &:before {
+            width: 18px;
+            height: 18px;
+            border: 1px solid var(--tooltip-border-color);
+            border-top-color: transparent;
+            border-right-color: transparent;
+            background-color: var(--tooltip-background-color);
+            content: ' ';
+            display: block;
             position: absolute;
-            left: 100%;
-
-            background: var(--tooltip-background-color);
-            border-width: 1px;
-            border-style: solid;
-            border-color: var(--tooltip-border-color);
-            border-radius: var(--main-nav-item-border-radius);
-
-            &:before {
-              width: 18px;
-              height: 18px;
-              border: 1px solid var(--tooltip-border-color);
-              border-top-color: transparent;
-              border-right-color: transparent;
-              background-color: var(--tooltip-background-color);
-              content: ' ';
-              display: block;
-              position: absolute;
-              right: 100%;
-              rotate: 45deg;
-              translate: 8px 0;
-            }
+            right: 100%;
+            rotate: 45deg;
+            translate: 8px 0;
           }
         }
-    } 
+      }
+    }
   }
 }

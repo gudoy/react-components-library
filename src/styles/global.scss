@@ -6,9 +6,9 @@
 @use 'spacing';
 
 :root {
-    --main-border-radius: 6px;
+  --main-border-radius: 6px;
 }
 
 .sr-only:not(:focus):not(:active) {
-    @include accessible-hidden;
+  @include accessible-hidden;
 }

@@ -1,6 +1,5 @@
 import { memo, useCallback } from 'react';
 
-
 import HomeIcon from '@/components/ui/icons/navigation/HomeIcon';
 import LogoutIcon from '@/components/ui/icons/navigation/LogoutIcon';
 import PortfolioIcon from '@/components/ui/icons/navigation/PortfolioIcon';
