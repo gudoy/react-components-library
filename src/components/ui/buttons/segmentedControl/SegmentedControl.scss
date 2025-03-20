@@ -13,6 +13,7 @@
   --segmented-control-item-border-width: 1px;
   --segmented-control-selected-item-background-color: var(--primary-color);
   --segmented-control-selected-item-border-color: var(--segmented-control-border-color);
+
   // --segmented-control-selected-item-border-color: var(--surface-light-color);
   --segmented-control-selected-item-text-color: var(--surface-light-color);
   --segmented-control-selected-box-shadow: 0 2px 8px 0 #rgba(109, 135, 159, 0.12);
@@ -30,7 +31,6 @@
   justify-content: center;
   position: relative;
   margin-bottom: 0;
-
   background-color: var(--segmented-control-background-color);
   border-style: solid;
   border-color: var(--segmented-control-border-color);
@@ -51,10 +51,7 @@
     border-width: 1px;
     border-color: transparent;
     position: absolute;
-    top: -1px;
-    right: 0;
-    bottom: -1px;
-    left: 0;
+    inset: -1px 0;
     z-index: 0;
   }
 
@@ -74,10 +71,7 @@
     input {
       appearance: none;
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      inset: 0;
       z-index: 2;
       cursor: pointer;
       display: block;
@@ -90,7 +84,7 @@
         font-size: var(--segmented-control-font-size);
         line-height: var(--segmented-control-line-height);
         font-weight: var(--segmented-control-font-weight);
-        font-family: var(--segmented-control-font-family);
+        font-family: var(--segmented-control-font-family), sans-serif;
         z-index: 1;
         text-align: center;
         white-space: nowrap;

@@ -15,7 +15,7 @@
       transform: translateY(-50%);
       color: var(--input-placeholder-color);
       pointer-events: none;
-      font-family: var(--input-font-family);
+      font-family: var(--input-font-family), sans-serif;
     }
   }
 
@@ -38,8 +38,7 @@
     font-weight: var(--input-font-weight);
     outline: none;
     box-shadow: none;
-    font-family: var(--input-font-family);
-
+    font-family: var(--input-font-family), sans-serif;
     appearance: none;
     background-color: var(--input-background-color);
     background-image: var(--select-arrow-icon);

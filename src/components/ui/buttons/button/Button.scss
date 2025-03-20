@@ -1,20 +1,16 @@
 :root {
   --button-min-size: 24px;
   --button-icon-size: 24px;
-
   --button-horizontal-padding: 8px;
   --button-vertical-padding: 8px;
   --button-label-horinzontal-padding: 8px;
-
   --button-border-radius: var(--main-border-radius);
   --button-font-family: inherit;
   --button-font-weight: inherit;
   --button-font-size: inherit;
-
   --button-border-color: var(--main-border-color);
   --button-background-color: var(--main-hover-background-color);
   --button-text-color: var(--main-text-color);
-
   --button-focus-border-color: var(--main-focus-border-color);
 }
 
@@ -33,12 +29,6 @@
   border-width: 1px;
   border-style: solid;
   text-decoration: none;
-
-  &.is-loading,
-  &:has(> .icon:only-child) {
-    padding-left: calc(var(--button-horizontal-padding) / 2);
-    padding-right: calc(var(--button-horizontal-padding) / 2);
-  }
 
   .label {
     padding: 0 var(--button-label-horinzontal-padding);
@@ -66,15 +56,20 @@
   &.focus, // This classname is mainly used for the storybook, to ease demo of the hover state
   &:focus {
     background-color: var(--button-focus-bg-color);
-    outline-style: solid;
-    outline-width: 1px;
-    outline-color: var(--button-focus-border-color);
+    outline: var(--button-focus-border-color) solid 1px;
+  }
+
+  &.is-loading,
+  &:has(> .icon:only-child) {
+    padding-left: calc(var(--button-horizontal-padding) / 2);
+    padding-right: calc(var(--button-horizontal-padding) / 2);
   }
 
   &.is-loading {
     .icon,
     .label {
       display: block;
+
       @include accessible-hidden;
     }
 
@@ -87,4 +82,5 @@
       }
     }
   }
+
 }

@@ -1,6 +1,6 @@
 .rating-stars {
-  --rating-star-default-color: rgb(240, 240, 240);
-  --rating-star-active-color: rgb(250, 219, 20);
+  --rating-star-default-color: rgb(240 240 240);
+  --rating-star-active-color: rgb(250 219 20);
 
   display: flex;
   justify-content: center;
@@ -24,23 +24,25 @@
     }
   }
 
-  // Only the selected li and the previous ones
-  &:has(> .is-current) {
-    > li:not(.is-current ~ li) {
-      svg {
-        fill: var(--rating-star-active-color);
-      }
-    }
-  }
-
   // Only the hovered over li and the previous ones
   &:hover {
     > li:hover,
     > li {
       &:not(:hover ~ li) {
+        // stylelint-disable-next-line no-descending-specificity
         svg {
           fill: var(--rating-star-active-color);
         }
+      }
+    }
+  }
+
+  // Only the selected li and the previous ones
+  &:has(> .is-current) {
+    > li:not(.is-current ~ li) {
+      // stylelint-disable-next-line no-descending-specificity
+      svg {
+        fill: var(--rating-star-active-color);
       }
     }
   }

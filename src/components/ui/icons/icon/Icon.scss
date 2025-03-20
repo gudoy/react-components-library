@@ -11,12 +11,12 @@
 
   svg {
     width: var(--main-icon-size);
+
     // height: var(--main-icon-size);
     aspect-ratio: 1;
     max-width: none; // necessary to workaround the max-width:100% from the reset
-
     stroke-width: 2;
-    stroke: currentColor;
+    stroke: currentcolor;
     fill: none;
   }
 }

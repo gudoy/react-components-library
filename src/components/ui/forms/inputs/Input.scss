@@ -6,7 +6,7 @@
   --input-border-focus-color: #1f1f1f;
   --input-border-radius: 6px;
   --input-border-width: 1px;
-  --input-box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.2);
+  --input-box-shadow: 0 0 0 2px rgb(17 17 17 / 20%);
   --input-horizontal-padding: 16px;
   --input-font-size: 14px;
   --input-line-height: 24px;
@@ -28,7 +28,7 @@
       transform: translateY(-50%);
       color: var(--input-placeholder-color);
       pointer-events: none;
-      font-family: var(--input-font-family);
+      font-family: var(--input-font-family), sans-serif;
     }
   }
 }
@@ -38,7 +38,7 @@
 input {
   // TODO: remove the following once Ant Design will have been totally removed
   &:not(:where(.ant-form input, .ant-input-affix-wrapper input, .ant-picker-input input)) {
-    &:not([type='checkbox']):not([type='radio']):not([type='file']) {
+    &:not([type='checkbox'], [type='radio'], [type='file']) {
       min-height: var(--input-min-height);
       padding: 0 var(--input-horizontal-padding);
       border-radius: var(--input-border-radius);
@@ -49,7 +49,7 @@ input {
       font-weight: var(--input-font-weight);
       outline: none;
       box-shadow: none;
-      font-family: var(--input-font-family);
+      font-family: var(--input-font-family), sans-serif;
 
       &[disabled],
       &:disabled {
@@ -70,7 +70,7 @@ input {
 
       &::placeholder {
         color: var(--input-placeholder-color);
-        font-family: var(--input-font-family);
+        font-family: var(--input-font-family), sans-serif;
       }
     }
   }

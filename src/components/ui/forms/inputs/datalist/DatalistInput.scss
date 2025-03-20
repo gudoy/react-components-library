@@ -1,7 +1,3 @@
-input:focus + datalist {
-  display: block;
-}
-
 datalist {
   background-color: white;
   border: var(--input-border-width) solid var(--input-border-color);
@@ -26,4 +22,8 @@ datalist {
       background-color: var(--surface-light-color);
     }
   }
+}
+
+input:focus + datalist {
+  display: block;
 }

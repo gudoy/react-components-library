@@ -20,7 +20,7 @@ input[type='checkbox']:not(.ant-checkbox-input) {
 
   &:hover:not(:disabled) {
     + label {
-      &:before {
+      &::before {
         width: 40px;
         height: 40px;
         content: '';
@@ -28,7 +28,7 @@ input[type='checkbox']:not(.ant-checkbox-input) {
         position: absolute;
         left: 0;
         top: 0;
-        background-color: rgba(238, 238, 238, 1);
+        background-color: rgb(238 238 238 / 100%);
         z-index: 1;
         border-radius: 50%;
         translate: -10px -9.5px;
@@ -38,11 +38,11 @@ input[type='checkbox']:not(.ant-checkbox-input) {
 
   + label {
     margin-left: 12px;
-
-    font-family: var(--input-font-family);
+    font-family: var(--input-font-family), sans-serif;
     font-size: var(--form-label-font-size);
     line-height: var(--form-label-line-height);
     font-weight: 600;
+
     // color: color-mix(in srgb, var(--outline-focus-color) 80%, transparent);
     // color: rgba(34, 44, 54, 1);
     color: var(--form-label-color);

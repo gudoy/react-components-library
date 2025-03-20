@@ -18,12 +18,13 @@
     }
 
     &.is-error {
-      border-color: currentColor;
+      border-color: currentcolor;
       background-color: var(--danger-variant-color);
       color: var(--danger-color);
     }
+
     &.is-success {
-      border-color: currentColor;
+      border-color: currentcolor;
       background-color: var(--success-variant-color);
       color: var(--success-color);
     }

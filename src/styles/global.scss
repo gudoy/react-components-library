@@ -1,5 +1,4 @@
 @use 'mixins' as *;
-
 @use 'reset';
 @use 'fonts';
 @use 'colors';
@@ -9,6 +8,6 @@
   --main-border-radius: 6px;
 }
 
-.sr-only:not(:focus):not(:active) {
+.sr-only:not(:focus, :active) {
   @include accessible-hidden;
 }
